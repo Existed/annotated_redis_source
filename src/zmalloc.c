@@ -118,6 +118,10 @@ static void zmalloc_default_oom(size_t size) {
 
 static void (*zmalloc_oom_handler)(size_t) = zmalloc_default_oom;
 
+/*
++-------------------+-------------------------+
+| (sizeof(size_t))  |   size                  |
++-------------------+-------------------------+ */
 void *zmalloc(size_t size) {
     void *ptr = malloc(size+PREFIX_SIZE);
 
